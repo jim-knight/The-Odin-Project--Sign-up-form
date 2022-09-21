@@ -10,6 +10,13 @@
 img {
 	object-fit: contain;
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin-top: 0;
+}
 /* Quick fix for quirky italic tag*/
 .italic {
 	font-style: italic;
@@ -91,8 +98,29 @@ aside a {
 /* Main content area */
 .container main {
 	flex: 1 1 65%;
-	padding: 60px 30px;
+	padding: 60px 0;
 	background: #f9fafb;
 	border-top-right-radius: 12px;
 	border-bottom-right-radius: 12px;
+}
+main p {
+	padding: 0 50px;
+}
+main .form-container {
+	background: #fff;
+	margin-top: 30px;
+	padding: 25px 50px;
+}
+.form-container form {
+	max-width: 85%;
+}
+.form-fields {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.form-fields > div {
+	width: calc(50% - 10px);
+	display: flex;
+	flex-flow: column nowrap;
 }
