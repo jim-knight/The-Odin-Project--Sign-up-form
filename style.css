@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@font-face {
+	font-family: norse;
+	src: url('./fonts/Norse-Bold.otf');
+}
+
+* {
+	box-sizing: border-box;
+}
+img {
+	object-fit: contain;
+}
+/* Quick fix for quirky italic tag*/
+.italic {
+	font-style: italic;
+	margin-right: 2px;
+}
+body {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 1.75;
+	background: #212121;
+}
+.container {
+	display: flex;
+	flex-flow: row nowrap;
+	width: 100%;
+	max-width: 1200px;
+	min-height: 50vh;
+	border-radius: 12px;
+}
+.logo {
+	max-width: 95px;
+}
+
+/* Aside (background image and logo) */
+
+.container aside {
+	overflow: hidden;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: stretch;
+	justify-content: space-between;
+	flex: 1 1 35%;
+	position: relative;
+	border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	color: #fff;
+	text-align: center;
+}
+aside > * {
+	z-index: 2;
+	font-size: 12px;
+}
+aside .logo-bar {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 100px;
+	padding: 8px 16px;
+	font-family: norse, sans-serif;
+	font-size: 60px;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 2;
+}
+aside .logo-bar h1 {
+	margin: 0 0 0 5px;
+	padding: 0;
+	line-height: 1.5;
+}
+aside > video {
+	z-index: 1;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+aside a {
+	color: #fff;
+}
+
+/* Main content area */
+.container main {
+	flex: 1 1 65%;
+	padding: 60px 30px;
+	background: #f9fafb;
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
