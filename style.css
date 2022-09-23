@@ -17,9 +17,11 @@ h4,
 h5 {
 	margin-top: 0;
 }
-/* Quick fix for quirky italic tag*/
-.italic {
-	font-style: italic;
+p.lg {
+	font-size: 1.25rem;
+}
+/* Quick fix for quirky emphasis tag*/
+em {
 	margin-right: 2px;
 }
 body {
@@ -36,10 +38,11 @@ body {
 }
 .container {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	width: 100%;
 	max-width: 1200px;
 	min-height: 50vh;
+	padding: 10px;
 	border-radius: 12px;
 }
 .logo {
@@ -54,23 +57,23 @@ body {
 	flex-flow: column wrap;
 	align-items: stretch;
 	justify-content: space-between;
-	flex: 1 1 35%;
+	flex: 1 0 100%;
 	position: relative;
-	border-top-left-radius: 12px;
-	border-bottom-left-radius: 12px;
+	border-radius: 12px 12px 0 0;
 	color: #fff;
 	text-align: center;
 }
 aside > * {
 	z-index: 2;
-	font-size: 12px;
+	font-size: 10px;
+	font-weight: 300;
 }
 aside .logo-bar {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: center;
-	margin-top: 100px;
+	margin: 10vw 0;
 	padding: 8px 16px;
 	font-family: norse, sans-serif;
 	font-size: 60px;
@@ -97,30 +100,162 @@ aside a {
 
 /* Main content area */
 .container main {
-	flex: 1 1 65%;
+	flex: 1 0 100%;
 	padding: 60px 0;
 	background: #f9fafb;
-	border-top-right-radius: 12px;
-	border-bottom-right-radius: 12px;
+	border-radius: 0 0 12px 12px;
 }
-main p {
+main a {
+	color: #5cc14e;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+main a:hover {
+	color: #043341;
+}
+main p,
+.form-container h3 {
 	padding: 0 50px;
 }
-main .form-container {
-	background: #fff;
-	margin-top: 30px;
-	padding: 25px 50px;
-}
-.form-container form {
-	max-width: 85%;
+
+/* Form */
+form {
+	position: relative;
 }
 .form-fields {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
 	justify-content: space-between;
+	background: #fff;
+	border-radius: 12px;
+	margin: 25px;
+	padding: 25px 25px;
+	filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.1));
 }
 .form-fields > div {
-	width: calc(50% - 10px);
+	width: 100%;
 	display: flex;
 	flex-flow: column nowrap;
+}
+label {
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: normal;
+}
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel'] {
+	margin-bottom: 10px;
+	padding: 10px 8px;
+	border: unset;
+	border-radius: 4px;
+	outline-color: rgb(92 193 78 / 0.5);
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(60, 66, 87, 0.16) 0px 0px 0px 1px;
+	transition: box-shadow 0.3s ease;
+}
+input.error {
+	outline-color: rgb(193 78 78 / 0.5);
+	box-shadow: rgba(193 78 78 / 0.5) 0px 0px 0px 1px;
+}
+form button[type='submit'] {
+	margin: 0 auto;
+	min-width: 180px;
+}
+
+/* Buttons */
+button {
+	cursor: pointer;
+	display: block;
+	position: relative;
+	padding: 8px 16px;
+	border: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 600;
+	box-shadow: 0 4px 12px 0 rgba(152, 160, 180, 10);
+}
+button.gradient {
+	overflow: hidden;
+	z-index: 0;
+}
+button.gradient .span {
+	position: relative;
+	z-index: 2;
+}
+button.gradient .secondary-fill {
+	position: absolute;
+	top: 75%;
+	left: 0;
+	background-image: linear-gradient(to right, #043341, #5cc14e);
+	background-size: 150% 150%;
+	height: 70px;
+	width: 420px;
+	border-radius: 5px;
+	margin: -40px 0 0 -140px;
+	z-index: -1;
+	transition: all 0.4s ease;
+}
+
+button:hover .secondary-fill {
+	-webkit-animation: gradient 3s ease infinite;
+	-moz-animation: gradient 3s ease infinite;
+	animation: gradient 3s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Media queries */
+@media (max-width: 350px) {
+	aside .logo-bar {
+		flex-flow: column nowrap;
+		padding-top: 30px;
+	}
+}
+@media (max-width: 600px) {
+	* {
+		text-align: center;
+	}
+	main p {
+		padding: 0 20px;
+	}
+}
+@media (min-width: 600px) {
+	.form-fields {
+		flex-flow: row wrap;
+	}
+	.form-fields > div {
+		width: calc(50% - 25px);
+		display: flex;
+		flex-flow: column nowrap;
+	}
+	form button[type='submit'] {
+		margin: 0 50px;
+	}
+}
+@media (min-width: 850px) {
+	.container {
+		flex-flow: row nowrap;
+	}
+	.container aside {
+		flex: 1 1 35%;
+		border-radius: 12px 0 0 12px;
+	}
+	.container main {
+		flex: 1 1 65%;
+		border-radius: 0 12px 12px 0;
+	}
+	aside .logo-bar {
+		margin-top: 100px;
+	}
 }
