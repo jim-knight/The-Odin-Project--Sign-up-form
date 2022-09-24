@@ -7,8 +7,8 @@
 		<title>The Odin Project- Sign-up form</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body>
-		<div class="container">
+	<body class="loading">
+		<div class="container loading">
 			<aside>
 				<div class="logo-bar">
 					<img src="./img/odin-lined.png" alt="" class="logo" />
@@ -45,11 +45,12 @@
 							</div>
 							<div>
 								<label for="password">Password</label>
-								<input type="password" name="password" id="password" class="error" />
+								<input type="password" name="password" id="password" />
+								<span class="error"></span>
 							</div>
 							<div>
 								<label for="password-validate">Confirm Password</label>
-								<input type="password" name="password-validate" id="password-validate" class="error" />
+								<input type="password" name="password-validate" id="password-validate" />
 							</div>
 						</div>
 						<button type="submit" class="gradient">
@@ -61,5 +62,6 @@
 				</div>
 			</main>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
